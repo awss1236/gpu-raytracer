@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <math.h>
 
-const int texsize = 50;
+const int texsize = 1200;
 
 uint32_t createfb(uint32_t* tex){
   uint32_t fb;
