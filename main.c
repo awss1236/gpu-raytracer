@@ -86,6 +86,7 @@ int main() {
   uint32_t n = 0;
   double t1, t2;
   double frametime = 0;
+  float timeoff = rand() / (float)RAND_MAX;
   while (!glfwWindowShouldClose(window)) {
     t1 = glfwGetTime();
     // render new frame
@@ -95,7 +96,7 @@ int main() {
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(rendershader);
     glUniform1f(ar, aspectratio);
-    glUniform1f(rtime, (float)n / 100);
+    glUniform1f(rtime, (float)t1 + timeoff);
     glBindVertexArray(vao);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
