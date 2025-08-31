@@ -16,7 +16,7 @@ uint32_t createfb(uint32_t* tex){
   glGenTextures(1, tex);
 
   glBindTexture(GL_TEXTURE_2D, *tex);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, texsize, texsize, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, texsize, texsize, 0, GL_RGB, GL_FLOAT, 0);
 
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -48,7 +48,7 @@ int main() {
   glGenTextures(1, &curtex);
 
   glBindTexture(GL_TEXTURE_2D, curtex);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, texsize, texsize, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, texsize, texsize, 0, GL_RGB, GL_FLOAT, 0);
 
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -124,7 +124,7 @@ int main() {
     // copy new avg to current
     glBindTexture(GL_TEXTURE_2D, curtex);
     glReadBuffer(GL_COLOR_ATTACHMENT0);
-    glCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, 0, texsize, texsize, 0);
+    glCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, 0, 0, texsize, texsize, 0);
     
     // display current
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
